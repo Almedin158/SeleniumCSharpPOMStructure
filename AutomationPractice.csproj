@@ -65,6 +65,7 @@
     <Compile Include="AutomationPracticePages\AccountRegister.cs" />
     <Compile Include="AutomationPracticePages\HomePage.cs" />
     <Compile Include="AutomationPracticeTests\RegisterTest.cs" />
+    <Compile Include="AutomationPracticeTests\LogInLogOutTest.cs" />
     <Compile Include="AutomationPracticeUtilityFunctions\UtilityFunctions.cs" />
     <Compile Include="DataSaveClasses\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

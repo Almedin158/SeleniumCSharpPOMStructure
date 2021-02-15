@@ -10,10 +10,14 @@ using OpenQA.Selenium.Firefox;
 namespace AutomationPractice.AutomationPracticeTests
 {
     [TestFixture]
-    public class RegisterTest
+    public class LogInLogOutTest
     {
-        public Person person;
         public IWebDriver driver;
+
+        public LogInLogOutTest(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
         [SetUp]
         public void Initialize()
         {
@@ -23,20 +27,18 @@ namespace AutomationPractice.AutomationPracticeTests
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
         [Test]
-        public void AccountCreation()
+        public void SignIn(IWebDriver driver,Person person)
         {
-            person = new Person();
             HomePage homePage = new HomePage(driver);
             homePage.AccountCreationSignIn();
             AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
-            accountCreationSignUp.CreateAccount(person);
+            accountCreationSignUp.SignIn(person);
         }
         [Test]
-        public void SignInSignOut()
+        public void SignOut(IWebDriver driver,Person person)
         {
-            LogInLogOutTest logInLogOutTest = new LogInLogOutTest(driver);
-            logInLogOutTest.SignIn(driver,person);
-            logInLogOutTest.SignOut(driver,person);
+            AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
+            accountCreationSignUp.SignOut();
         }
         [TearDown]
         public void TearDown()
