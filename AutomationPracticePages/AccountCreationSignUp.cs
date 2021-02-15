@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using AutomationPractice.DataSaveClasses;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,10 @@ namespace AutomationPractice.AutomationPracticePages
 {
     class AccountCreationSignUp
     {
-        AccountRegister automationPracticeAccountRegister;
+        AccountRegister accountRegister;
+        By email = By.Name("email");
+        By password = By.Name("passwd");
+        By submitLogin = By.Name("SubmitLogin");
         By emailAddress = By.Name("email_create");
         By createAnAccount = By.Name("SubmitCreate");
         IWebDriver driver;
@@ -19,13 +23,18 @@ namespace AutomationPractice.AutomationPracticePages
         {
             this.driver = driver;
         }
-        public void CreateAccount()
+        public void CreateAccount(Person person)
         {
-            automationPracticeAccountRegister = new AccountRegister(driver);
-            driver.FindElement(emailAddress).SendKeys(automationPracticeAccountRegister.getEmail());
+            accountRegister = new AccountRegister(driver);
+            driver.FindElement(emailAddress).SendKeys(person.getEmail());
             driver.FindElement(createAnAccount).Click();
-            Thread.Sleep(10000);
-            automationPracticeAccountRegister.Register();
+            accountRegister.CreateAccount(person);
+        }
+        public void SignIn(Person person)
+        {
+            driver.FindElement(email).SendKeys(person.getEmail());
+            driver.FindElement(password).SendKeys(person.getPassword());
+            driver.FindElement(submitLogin).Click();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using AutomationPractice.AutomationPracticePages;
+using AutomationPractice.DataSaveClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -11,6 +12,7 @@ namespace AutomationPractice.AutomationPracticeTests
     [TestFixture]
     public class RegisterTest
     {
+        public Person person;
         public IWebDriver driver;
         [SetUp]
         public void Initialize()
@@ -18,21 +20,30 @@ namespace AutomationPractice.AutomationPracticeTests
             driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000);
         }
         [Test]
         public void AccountCreation()
         {
-            HomePage automationPracticeHomePage = new HomePage(driver);
-            automationPracticeHomePage.AccountCreationSignIn();
-            Thread.Sleep(10000);
+            person = new Person();
+            HomePage homePage = new HomePage(driver);
+            homePage.AccountCreationSignIn();
             AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
-            Thread.Sleep(10000);
-            accountCreationSignUp.CreateAccount();
+            accountCreationSignUp.CreateAccount(person);
         }
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    driver.Quit();
-        //}
+        [Test]
+        public void SignIn()
+        {
+            HomePage homePage = new HomePage(driver);
+            homePage.AccountCreationSignIn();
+            AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
+            accountCreationSignUp.SignIn(person);
+        }
+        [TearDown]
+        public void TearDown()
+        {
+            Thread.Sleep(5000);
+            driver.Quit();
+        }
     }
 }
