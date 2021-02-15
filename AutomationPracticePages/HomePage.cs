@@ -10,6 +10,7 @@ namespace AutomationPractice.AutomationPracticePages
     class HomePage
     {
         IWebDriver driver;
+        By signOut = By.ClassName("logout");
         By accountCreationSignUp = By.ClassName("login");
         public HomePage(IWebDriver driver)
         {
@@ -18,6 +19,10 @@ namespace AutomationPractice.AutomationPracticePages
         public void AccountCreationSignIn()
         {
             driver.FindElement(accountCreationSignUp).Click();
+        }
+        public void SignOut()
+        {
+            driver.FindElement(signOut).Click();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace AutomationPractice.AutomationPracticePages
     class AccountCreationSignUp
     {
         AccountRegister accountRegister;
+        By signOut = By.ClassName("logout");
         By email = By.Name("email");
         By password = By.Name("passwd");
         By submitLogin = By.Name("SubmitLogin");
@@ -35,6 +36,10 @@ namespace AutomationPractice.AutomationPracticePages
             driver.FindElement(email).SendKeys(person.getEmail());
             driver.FindElement(password).SendKeys(person.getPassword());
             driver.FindElement(submitLogin).Click();
+        }
+        public void SignOut()
+        {
+            driver.FindElement(signOut).Click();
         }
     }
 }

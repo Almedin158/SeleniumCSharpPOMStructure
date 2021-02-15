@@ -91,7 +91,7 @@ namespace AutomationPractice.DataSaveClasses
         {
             var Numbers = "0123456789";
             var Random = new Random();
-            var stringPhoneNumber = new char[3];
+            var stringPhoneNumber = new char[5];
             for (int i = 0; i < stringPhoneNumber.Length; i++)
             {
                 stringPhoneNumber[i] = Numbers[Random.Next(9)];

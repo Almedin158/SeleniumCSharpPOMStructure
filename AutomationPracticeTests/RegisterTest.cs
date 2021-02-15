@@ -39,10 +39,22 @@ namespace AutomationPractice.AutomationPracticeTests
             AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
             accountCreationSignUp.SignIn(person);
         }
+        [Test]
+        public void SignOut()
+        {
+            AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
+            accountCreationSignUp.SignOut();
+        }
+        [Test]
+        public void SignInSignOut()
+        {
+            SignIn();
+            SignOut();
+        }
         [TearDown]
         public void TearDown()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             driver.Quit();
         }
     }
