@@ -20,7 +20,7 @@ namespace AutomationPractice.AutomationPracticeTests
             driver = new FirefoxDriver();
             driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
             driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5000);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
         [Test]
         public void AccountCreation()
@@ -32,7 +32,7 @@ namespace AutomationPractice.AutomationPracticeTests
             accountCreationSignUp.CreateAccount(person);
         }
         [Test]
-        public void SignIn()
+        public void SignIn()//Prebaciti signin i signout u novu klasu
         {
             HomePage homePage = new HomePage(driver);
             homePage.AccountCreationSignIn();
@@ -51,11 +51,11 @@ namespace AutomationPractice.AutomationPracticeTests
             SignIn();
             SignOut();
         }
-        [TearDown]
-        public void TearDown()
-        {
-            Thread.Sleep(10000);
-            driver.Quit();
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    Thread.Sleep(10000);
+        //    driver.Quit();
+        //}
     }
 }
