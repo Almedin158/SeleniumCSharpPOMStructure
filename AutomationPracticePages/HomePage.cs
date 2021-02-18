@@ -40,7 +40,7 @@ namespace AutomationPractice.AutomationPracticePages
         {
             driver.FindElement(popular).Click();
         }
-        public void SelectBestSeller()//I can't seem to find a way to select "Faded Short Sleeve T-shirts" and hover over it to be able to select adding it to the cart.
+        public void SelectBestSeller()//I can't seem to find a way to select "Printed Chiffon Dress" and hover over it to be able to select adding it to the cart.
         {
             driver.FindElement(bestSeller).Click();
             Actions actions = new Actions(driver);
