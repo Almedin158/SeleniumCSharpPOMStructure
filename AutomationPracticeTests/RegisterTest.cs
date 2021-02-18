@@ -32,12 +32,6 @@ namespace AutomationPractice.AutomationPracticeTests
             accountCreationSignUp.CreateAccount(person);
         }
         [Test]
-        public void AddToCart()
-        {
-            HomePage homePage = new HomePage(driver);
-            homePage.SelectBestSeller();
-        }
-        [Test]
         public void SignInSignOut()
         {
             LogInLogOutTest logInLogOutTest = new LogInLogOutTest(driver);

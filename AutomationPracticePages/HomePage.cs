@@ -1,13 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace AutomationPractice.AutomationPracticePages
 {
@@ -40,12 +34,15 @@ namespace AutomationPractice.AutomationPracticePages
         {
             driver.FindElement(popular).Click();
         }
-        public void SelectBestSeller()//I can't seem to find a way to select "Printed Chiffon Dress" and hover over it to be able to select adding it to the cart.
+        public void SelectBestSeller()//I can't seem to find a way to select "Printed Chiffon Dress" and hover over it to be able to select adding it to the cart.//Solved
         {
             driver.FindElement(bestSeller).Click();
             Actions actions = new Actions(driver);
-            IWebElement webElement = driver.FindElement(By.CssSelector("[href*='http://automationpractice.com/index.php?id_product=1&controller=product']"));
+            IWebElement webElement = driver.FindElement(By.XPath("(//img[@alt='Printed Chiffon Dress'])[2]")); 
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;//Scrolls down to element, so it is in the view.
+            js.ExecuteScript("arguments[0].scrollIntoView();", webElement);//Scrolls down to element, so it is in the view.
             actions.MoveToElement(webElement).Perform();
+            driver.FindElement(By.XPath("//ul[@id='blockbestsellers']/li/div/div[2]/div[2]/a/span")).Click();
         }
     }
 }
