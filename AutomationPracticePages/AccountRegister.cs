@@ -30,6 +30,8 @@ namespace AutomationPractice.AutomationPracticePages
         By addressAlias = By.Name("alias");
         By submitAccount = By.Name("submitAccount");
         By postalCode = By.Name("postcode");
+        By logo = By.CssSelector("[href*='http://automationpractice.com/']");
+        By cart = By.CssSelector("[href*='http://automationpractice.com/index.php?controller=order']");
         public AccountRegister(IWebDriver driver)
         {
             this.driver = driver;
@@ -58,6 +60,14 @@ namespace AutomationPractice.AutomationPracticePages
             driver.FindElement(addressAlias).Clear();
             driver.FindElement(addressAlias).SendKeys(person.getAddressAlias());
             driver.FindElement(submitAccount).Click();
+        }
+        public void ReturnToHomePage()
+        {
+            driver.FindElement(logo).Click();
+        }
+        public void OpenCart()
+        {
+            driver.FindElement(cart).Click();
         }
     }
 }

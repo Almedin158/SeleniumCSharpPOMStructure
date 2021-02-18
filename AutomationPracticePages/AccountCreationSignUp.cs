@@ -18,6 +18,8 @@ namespace AutomationPractice.AutomationPracticePages
         By submitLogin = By.Name("SubmitLogin");
         By emailAddress = By.Name("email_create");
         By createAnAccount = By.Name("SubmitCreate");
+        By logo = By.CssSelector("[href*='http://automationpractice.com/']");
+        By cart = By.CssSelector("[href*='http://automationpractice.com/index.php?controller=order']");
         IWebDriver driver;
 
         public AccountCreationSignUp(IWebDriver driver)
@@ -40,6 +42,14 @@ namespace AutomationPractice.AutomationPracticePages
         public void SignOut()
         {
             driver.FindElement(signOut).Click();
+        }
+        public void ReturnToHomePage()
+        {
+            driver.FindElement(logo).Click();
+        }
+        public void OpenCart()
+        {
+            driver.FindElement(cart).Click();
         }
     }
 }

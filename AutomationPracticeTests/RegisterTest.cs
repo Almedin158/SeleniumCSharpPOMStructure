@@ -18,8 +18,8 @@ namespace AutomationPractice.AutomationPracticeTests
         public void Initialize()
         {
             driver = new FirefoxDriver();
-            driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
             driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl("http://automationpractice.com/index.php");
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
         [Test]
@@ -30,6 +30,12 @@ namespace AutomationPractice.AutomationPracticeTests
             homePage.AccountCreationSignIn();
             AccountCreationSignUp accountCreationSignUp = new AccountCreationSignUp(driver);
             accountCreationSignUp.CreateAccount(person);
+        }
+        [Test]
+        public void AddToCart()
+        {
+            HomePage homePage = new HomePage(driver);
+            homePage.SelectBestSeller();
         }
         [Test]
         public void SignInSignOut()
