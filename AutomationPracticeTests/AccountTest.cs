@@ -10,7 +10,7 @@ using OpenQA.Selenium.Firefox;
 namespace AutomationPractice.AutomationPracticeTests
 {
     [TestFixture]
-    public class RegisterTest
+    public class AccountTest
     {
         public Person person;
         public IWebDriver driver;

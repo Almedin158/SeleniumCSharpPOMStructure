@@ -26,6 +26,12 @@ namespace AutomationPractice.AutomationPracticeTests
             HomePage homePage = new HomePage(driver);
             homePage.SelectBestSeller();
         }
+        [Test]
+        public void OpenCart()
+        {
+            HomePage homePage = new HomePage(driver);
+            homePage.OpenCart();
+        }
         [TearDown]
         public void TearDown()
         {
