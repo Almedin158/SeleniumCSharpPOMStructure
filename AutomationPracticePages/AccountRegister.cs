@@ -30,7 +30,7 @@ namespace AutomationPractice.AutomationPracticePages
         By addressAlias = By.Name("alias");
         By submitAccount = By.Name("submitAccount");
         By postalCode = By.Name("postcode");
-        By logo = By.CssSelector("[href*='http://automationpractice.com/']");
+        By logo = By.Id("header_logo");
         By cart = By.CssSelector("[href*='http://automationpractice.com/index.php?controller=order']");
         public AccountRegister(IWebDriver driver)
         {

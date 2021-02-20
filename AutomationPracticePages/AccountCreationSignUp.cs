@@ -18,7 +18,7 @@ namespace AutomationPractice.AutomationPracticePages
         By submitLogin = By.Name("SubmitLogin");
         By emailAddress = By.Name("email_create");
         By createAnAccount = By.Name("SubmitCreate");
-        By logo = By.CssSelector("[href*='http://automationpractice.com/']");
+        By logo = By.Id("header_logo");
         By cart = By.CssSelector("[href*='http://automationpractice.com/index.php?controller=order']");
         IWebDriver driver;
 

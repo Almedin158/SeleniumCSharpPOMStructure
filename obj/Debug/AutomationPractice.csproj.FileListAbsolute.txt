@@ -22,4 +22,3 @@ C:\Users\Korisnik\source\repos\AutomationPractice\obj\Debug\AutomationPractice.c
 C:\Users\Korisnik\source\repos\AutomationPractice\obj\Debug\AutomationPractice.csproj.CopyComplete
 C:\Users\Korisnik\source\repos\AutomationPractice\obj\Debug\AutomationPractice.dll
 C:\Users\Korisnik\source\repos\AutomationPractice\obj\Debug\AutomationPractice.pdb
-C:\Users\Korisnik\source\repos\AutomationPractice\obj\Debug\AutomationPractice.csprojAssemblyReference.cache

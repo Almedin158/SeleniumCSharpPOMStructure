@@ -25,6 +25,8 @@ namespace AutomationPractice.AutomationPracticeTests
         {
             HomePage homePage = new HomePage(driver);
             homePage.SelectBestSeller();
+            homePage.ReturnToHomePage();
+            homePage.SelectPopular();
         }
         [Test]
         public void OpenCart()
